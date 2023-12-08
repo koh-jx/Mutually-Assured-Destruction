@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://xrtif2i01nv1"]
+
+[ext_resource type="PackedScene" uid="uid://brdddejb8fhux" path="res://scenes/planet/planet.tscn" id="1_a4eky"]
+[ext_resource type="PackedScene" uid="uid://bpmoshn1m3ajf" path="res://scenes/entity/entity.tscn" id="2_ydqqi"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Planet" parent="." instance=ExtResource("1_a4eky")]
+position = Vector2(578, 337)
+
+[node name="Entity" parent="." instance=ExtResource("2_ydqqi")]
+position = Vector2(133, 163)
