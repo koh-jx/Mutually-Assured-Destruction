@@ -16,6 +16,9 @@
 - 2 player implementation + controls
 - Single-player + AI?
 - Add more weapons (drill, carpet bombing, explosion on impact)
+
+- Add nuke gauge, which powers up spells as you shoot/get damaged, and decreases over time
+
 - Add power ups (superspeed, infinite ammo)
 
 - Add multiple planets?
