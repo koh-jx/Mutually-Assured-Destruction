@@ -21,3 +21,7 @@ config/icon="res://icon.svg"
 2d_physics/layer_2="gravity"
 2d_physics/layer_3="player"
 2d_physics/layer_4="missle"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

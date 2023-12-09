@@ -19,14 +19,9 @@ func _physics_process(delta):
 		
 		var pos_diff = global_position - entity.global_position
 		var dist = global_position.distance_to(entity.global_position)
-		#pos_diff = Vector2(snapped(pos_diff.x, 0), snapped(pos_diff.y, 0))
 		var pull_force = pos_diff.normalized() / dist * GRAVITY
 		
 		entity.gravity = pull_force
-	
-		# TODO change rotation of parent of area object such that vector is pointing downwards
-		# Same with velocity, should keep a variable inside Entity that handles this
-		# Should I do this entire rotation thing in gravity or entity?
 
 
 
