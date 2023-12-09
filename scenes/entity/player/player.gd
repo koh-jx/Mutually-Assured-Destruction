@@ -1,6 +1,6 @@
 extends "res://scenes/entity/entity.gd"
 
-const SPEED = 50000.0
+const SPEED = 25000.0
 
 func _physics_process(delta):
 	reset_physics()
@@ -19,4 +19,5 @@ func handle_input_velocity(delta):
 	
 	# rotate to current rotation's axis
 	velocity += input_vector.rotated(rotation)
+	print(velocity)
 	
