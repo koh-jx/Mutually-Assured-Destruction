@@ -15,4 +15,9 @@ shape = SubResource("RectangleShape2D_75jqu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
+[node name="GravityBox" type="Area2D" parent="."]
+
+[node name="GravityCollisionShape" type="CollisionShape2D" parent="GravityBox"]
+shape = SubResource("RectangleShape2D_75jqu")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

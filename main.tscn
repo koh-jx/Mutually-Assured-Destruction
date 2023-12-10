@@ -1,15 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://xrtif2i01nv1"]
 
 [ext_resource type="PackedScene" uid="uid://brdddejb8fhux" path="res://scenes/planet/planet.tscn" id="1_a4eky"]
+[ext_resource type="Texture2D" uid="uid://r5hhoqtwwx7k" path="res://assets/planets/background.png" id="1_ukils"]
 [ext_resource type="PackedScene" uid="uid://bplqa05epao2n" path="res://scenes/entity/player/player.tscn" id="2_mevgc"]
-[ext_resource type="PackedScene" uid="uid://ds75805t6sn0f" path="res://scenes/Projectiles/missle.tscn" id="3_p7w3i"]
 
 [node name="Main" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(479, 560)
+texture = ExtResource("1_ukils")
 
 [node name="Planet" parent="." instance=ExtResource("1_a4eky")]
 position = Vector2(578, 337)
 
 [node name="Player" parent="." instance=ExtResource("2_mevgc")]
-
-[node name="Missle" parent="." instance=ExtResource("3_p7w3i")]
-position = Vector2(230, 322)

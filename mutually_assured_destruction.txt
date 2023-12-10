@@ -1,10 +1,9 @@
-- Add projectile motion missles affected by gravity shot at fixed angle from player
-	- Missle class implementation
-		- Rotation based on current force(?)
-		- Collision on Player (destroy + damage TODO)
-- Stats (health, move speed, reload time)
+- Stats (health, move speed)
+	- Missle to damage player (convert to player hurtbox? instead of missle hitbox)
 
 - Change fixed angle to a range
+	- Arrow indicator, W and S to toggle
+	- Change input to shoot
 - Add UI
 	- Sprites
 	- Health UI
