@@ -6,10 +6,10 @@ var gravity_force = Vector2()
 func _integrate_forces(state):
 	var delta = state.get_step()
 	state.apply_force(gravity_force * delta)
+	_handle_gravity_rotation(state)
 
-func _handle_rotation(state):
-	# TODO
-	pass
+func _handle_gravity_rotation(state: PhysicsDirectBodyState2D):
+	rotation = get_linear_velocity().angle() - deg_to_rad(90)
 
 # EXAMPLE
 # ------------

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ds75805t6sn0f"]
 
-[ext_resource type="Script" path="res://scenes/entity/Projectiles/missle.gd" id="1_cr8no"]
+[ext_resource type="Script" path="res://scenes/Projectiles/missle.gd" id="1_cr8no"]
 [ext_resource type="Texture2D" uid="uid://droxdbr0d6ux0" path="res://assets/projectiles/spaceMissiles_018.png" id="2_nchm7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oiine"]

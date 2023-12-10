@@ -1,10 +1,11 @@
-extends "res://scenes/entity/Projectiles/projectile.gd"
+extends "res://scenes/Projectiles/projectile.gd"
 
 @export var thrust = Vector2(-300,-100)
 
 func _ready():
-	# TODO account for direction of shot by rotating initial_thrust
-	linear_velocity = thrust
+	# TODO account for direction of shot by rotating initial thrust
+	# TODO modify initial thrust to just be a magnitude
+	linear_velocity = thrust # Add gravity force
 	
 func _integrate_forces(state):
 	super._integrate_forces(state)

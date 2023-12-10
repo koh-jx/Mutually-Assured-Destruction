@@ -1,7 +1,7 @@
 extends Area2D
 
 const Entity = preload("res://scenes/entity/entity.gd")
-const Projectile = preload("res://scenes/entity/Projectiles/projectile.gd")
+const Projectile = preload("res://scenes/Projectiles/projectile.gd")
 var GRAVITY = 9810000
 var body_list = []
 

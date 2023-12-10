@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://brdddejb8fhux" path="res://scenes/planet/planet.tscn" id="1_a4eky"]
 [ext_resource type="PackedScene" uid="uid://bplqa05epao2n" path="res://scenes/entity/player/player.tscn" id="2_mevgc"]
-[ext_resource type="PackedScene" uid="uid://ds75805t6sn0f" path="res://scenes/entity/Projectiles/missle.tscn" id="3_p7w3i"]
+[ext_resource type="PackedScene" uid="uid://ds75805t6sn0f" path="res://scenes/Projectiles/missle.tscn" id="3_p7w3i"]
 
 [node name="Main" type="Node2D"]
 
