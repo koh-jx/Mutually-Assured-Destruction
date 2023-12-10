@@ -1,15 +1,18 @@
-- Add circular motion of an entity along the sphere (i.e left/right motion accounting for rotation of entity)
-- Add tank entities with stats (health, move speed, reload time)
 - Add projectile motion missles affected by gravity shot at fixed angle from player
+	- Missle class implementation
+		- Rotation based on current force(?)
+		- Collision on Player (destroy + damage TODO)
+- Stats (health, move speed, reload time)
+
 - Change fixed angle to a range
-- Add health
-- Add UI/sprites
+- Add UI
+	- Sprites
+	- Health UI
 - 2 player implementation + controls
 - Single-player + AI?
 - Add more weapons (drill, carpet bombing, explosion on impact)
 
 - Add nuke gauge, which powers up spells as you shoot/get damaged, and decreases over time
-
 - Add power ups (superspeed, infinite ammo)
 
 - Add multiple planets?

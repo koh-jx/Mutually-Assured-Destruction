@@ -9,7 +9,6 @@ radius = 10.4325
 
 [node name="Planet" type="StaticBody2D"]
 scale = Vector2(18.598, 18.598)
-collision_mask = 0
 script = ExtResource("1_b712v")
 
 [node name="PlanetSprite" type="Sprite2D" parent="."]
