@@ -9,7 +9,7 @@ var shoot_angle = 30.0
 const SHOOT_ROTATION_SPEED = 200.0
 const MIN_SHOOT_ANGLE = 30.0
 const MAX_SHOOT_ANGLE = 150.0
-var health = 100
+var health = 5
 var speed = 35000.0
 var reload_speed = 0.5
 
@@ -22,6 +22,7 @@ var rotation_input_dir: float = 0
 
 func _ready():
 	$Arrowhead.rotate(-1 * deg_to_rad(shoot_angle))
+	$ShootTimer.set_wait_time(reload_speed)
 	super._ready()
 
 # Update velocity_input_dir and rot_input_dir 

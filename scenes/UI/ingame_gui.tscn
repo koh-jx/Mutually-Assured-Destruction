@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://db26pyg4354y2"]
+
+[ext_resource type="Script" path="res://scenes/UI/ingame_gui.gd" id="1_j1wy1"]
+[ext_resource type="PackedScene" uid="uid://oddw0l2dicvy" path="res://scenes/UI/lifebar.tscn" id="1_ju7xt"]
+
+[node name="ingame_gui" type="MarginContainer"]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.003
+offset_left = 43.0
+offset_top = 52.0
+offset_right = -57.0
+offset_bottom = -102.944
+script = ExtResource("1_j1wy1")
+
+[node name="player_life" parent="." instance=ExtResource("1_ju7xt")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+label_colour = Color(0, 1, 0.831373, 1)
+
+[node name="enemy_life" parent="." instance=ExtResource("1_ju7xt")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+label_colour = Color(1, 0.278431, 0.278431, 1)
