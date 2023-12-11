@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://btrxctl8ofwaq"]
+
+[ext_resource type="PackedScene" uid="uid://bplqa05epao2n" path="res://scenes/entity/tank.tscn" id="1_hg8qn"]
+[ext_resource type="Script" path="res://scenes/entity/enemy/enemy.gd" id="2_caq5d"]
+
+[node name="Enemy" instance=ExtResource("1_hg8qn")]
+script = ExtResource("2_caq5d")
+shoot_chance = 0.4
+change_rotation_chance = 0.01
+stop_moving_chance = 0.01
+change_direction_chance = 0.04
+
+[node name="AnimatedSprite2D" parent="." index="2"]
+modulate = Color(1, 0, 0, 1)

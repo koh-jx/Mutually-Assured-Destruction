@@ -1,4 +1,5 @@
 extends CharacterBody2D
+# Entity: A CharacterBody2D that is affeected by Gravity
 
 # Set a gravity variable to work with Gravity scene
 var gravity = Vector2()

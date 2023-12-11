@@ -2,9 +2,7 @@
 	- Health UI
 	- Sprites
 	- VFX
-- Single-player + basic AI
-	- action_pressed()/released() to "simulate input" by enemy AI?
-	https://www.reddit.com/r/godot/comments/s04tk0/how_can_i_simulate_inputs/
+
 - Main menu
 - 2 player implementation + controls
 - Add more weapons (drill, carpet bombing, explosion on impact)
