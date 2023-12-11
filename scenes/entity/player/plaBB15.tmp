@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://bplqa05epao2n"]
+
+[ext_resource type="Texture2D" uid="uid://wmje66l6ku81" path="res://assets/player/bluetank/tankblue.png" id="1_14jy5"]
+[ext_resource type="Script" path="res://scenes/entity/player/player.gd" id="1_xcyd7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rs3ir"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_25dl6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_14jy5")
+}],
+"loop": true,
+"name": &"blue_default",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+collision_layer = 15
+collision_mask = 5
+script = ExtResource("1_xcyd7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.74636, 2.14078)
+scale = Vector2(1.75033, 1.40043)
+shape = SubResource("RectangleShape2D_rs3ir")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_25dl6")
+animation = &"blue_default"
+
+[node name="ShootTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

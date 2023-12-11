@@ -1,22 +1,25 @@
 [gd_scene load_steps=5 format=3 uid="uid://brdddejb8fhux"]
 
 [ext_resource type="Script" path="res://scenes/planet/planet.gd" id="1_b712v"]
-[ext_resource type="Texture2D" uid="uid://dew7t1y2hq1q7" path="res://assets/planets/planet_2.png" id="1_w3d34"]
+[ext_resource type="Texture2D" uid="uid://do8gl0tdrj24o" path="res://assets/planets/planet_1.png" id="2_li7kq"]
 [ext_resource type="PackedScene" uid="uid://c8i5eyiwjnld2" path="res://scenes/planet/gravity.tscn" id="3_0w5aj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ska15"]
+radius = 10.4325
 
 [node name="Planet" type="StaticBody2D"]
 scale = Vector2(18.598, 18.598)
 collision_mask = 0
 script = ExtResource("1_b712v")
 
-[node name="PlanetBody" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_ska15")
-
 [node name="PlanetSprite" type="Sprite2D" parent="."]
 texture_filter = 1
+position = Vector2(-0.0537692, -0.0537692)
 scale = Vector2(0.197297, 0.201218)
-texture = ExtResource("1_w3d34")
+texture = ExtResource("2_li7kq")
 
-[node name="Area2D" parent="." instance=ExtResource("3_0w5aj")]
+[node name="Gravity" parent="." instance=ExtResource("3_0w5aj")]
+
+[node name="PlanetBody" type="CollisionShape2D" parent="."]
+scale = Vector2(0.93, 0.93)
+shape = SubResource("CircleShape2D_ska15")

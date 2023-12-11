@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://ds75805t6sn0f"]
+
+[ext_resource type="Script" path="res://scenes/Projectiles/missle.gd" id="1_cr8no"]
+[ext_resource type="Texture2D" uid="uid://droxdbr0d6ux0" path="res://assets/projectiles/spaceMissiles_018.png" id="2_nchm7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oiine"]
+size = Vector2(10, 20)
+
+[node name="Missle" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 13
+gravity_scale = 0.0
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_cr8no")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_oiine")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -3.14159
+scale = Vector2(0.761611, 0.571208)
+texture = ExtResource("2_nchm7")
+
+[node name="InvulnTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="GravityBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GravityBox"]
+shape = SubResource("RectangleShape2D_oiine")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="InvulnTimer" to="." method="_on_invuln_timer_timeout"]

@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://bplqa05epao2n"]
+
+[ext_resource type="Texture2D" uid="uid://wmje66l6ku81" path="res://assets/player/bluetank/tankblue.png" id="1_14jy5"]
+[ext_resource type="Script" path="res://scenes/entity/player/player.gd" id="1_xcyd7"]
+[ext_resource type="Texture2D" uid="uid://bmngau2xuyycj" path="res://assets/projectiles/spaceMissiles_001.png" id="3_5mi0t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rs3ir"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_25dl6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_14jy5")
+}],
+"loop": true,
+"name": &"blue_default",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+collision_layer = 6
+collision_mask = 5
+script = ExtResource("1_xcyd7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.74636, 2.14078)
+scale = Vector2(1.75033, 1.40043)
+shape = SubResource("RectangleShape2D_rs3ir")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_25dl6")
+animation = &"blue_default"
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(-3.746, 2.141)
+scale = Vector2(1.75, 1.4)
+shape = SubResource("RectangleShape2D_rs3ir")
+
+[node name="Arrowhead" type="Sprite2D" parent="."]
+texture = ExtResource("3_5mi0t")
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

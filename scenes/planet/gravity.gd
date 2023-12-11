@@ -1,8 +1,10 @@
 extends Area2D
 
 const Entity = preload("res://scenes/entity/entity.gd")
+const Projectile = preload("res://scenes/Projectiles/projectile.gd")
 var GRAVITY = 9810000
 var body_list = []
+var area_list = []
 
 func _on_body_entered(body):
 	body_list.append(body)
@@ -10,23 +12,34 @@ func _on_body_entered(body):
 func _on_body_exited(body):
 	body_list.remove_at(body_list.find(body))
 	
+func _on_area_entered(area):
+	area_list.append(area)
+
+func _on_area_exited(area):
+	area_list.remove_at(area_list.find(area))
+
+	
 # Updates the pull force magnitude and direction in all Entities in the area.
 func _physics_process(delta):	
 	for body in body_list:
 		var entity := body as Entity
-		if not entity:
-			return
+		if entity:
+			_affect_entity(entity)
+	for area in area_list:
+		var projectile := area.get_parent() as Projectile
+		if projectile:
+			_affect_projectile(projectile)
 		
-		var pos_diff = global_position - entity.global_position
-		var dist = global_position.distance_to(entity.global_position)
-		#pos_diff = Vector2(snapped(pos_diff.x, 0), snapped(pos_diff.y, 0))
-		var pull_force = pos_diff.normalized() / dist * GRAVITY
-		
-		entity.gravity = pull_force
-	
-		# TODO change rotation of parent of area object such that vector is pointing downwards
-		# Same with velocity, should keep a variable inside Entity that handles this
-		# Should I do this entire rotation thing in gravity or entity?
+			
+func calculate_pull_force(body):
+	var pos_diff = global_position - body.global_position
+	var dist = global_position.distance_to(body.global_position)
+	return pos_diff.normalized() / dist * GRAVITY
 
+func _affect_entity(entity):
+	entity.gravity = calculate_pull_force(entity)
+
+func _affect_projectile(projectile):
+	projectile.gravity_force = calculate_pull_force(projectile)
 
 
