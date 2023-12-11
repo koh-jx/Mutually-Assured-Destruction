@@ -179,10 +179,10 @@ script = ExtResource("1_cr8no")
 modulate = Color(0.541176, 0.541176, 0.541176, 0.352941)
 material = SubResource("CanvasItemMaterial_gysyp")
 position = Vector2(1, -12)
-amount = 30
+amount = 25
 process_material = SubResource("ParticleProcessMaterial_tfnsv")
 texture = ExtResource("2_turo1")
-lifetime = 1.5
+lifetime = 0.6
 visibility_rect = Rect2(-1000, -1000, 2000, 2000)
 script = ExtResource("3_xtg0b")
 

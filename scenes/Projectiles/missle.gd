@@ -19,7 +19,7 @@ func _integrate_forces(state):
 
 func _on_body_entered(body):
 	$SmokeTrail.reparent_to_root()
-	queue_free()
+	super.on_destroy()
 
 func _on_invuln_timer_timeout():
 	toggle_collision()

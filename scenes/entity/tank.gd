@@ -3,6 +3,7 @@
 extends "res://scenes/entity/entity.gd"
 
 var Missle = preload("res://scenes/Projectiles/missle.tscn")
+var Explosion = preload("res://scenes/Projectiles/explosion.tscn")
 
 # Default stats
 var shoot_angle = 30.0
@@ -83,4 +84,10 @@ func take_damage(damage):
 		lose()
 
 func lose():
+	var explosion = Explosion.instantiate()
+	get_parent().add_child(explosion)
+	explosion.set_animation("mushroom_cloud")
+	explosion.global_position = global_position
+	explosion.global_rotation = global_rotation
+	explosion.global_scale = Vector2(2, 2)
 	queue_free()

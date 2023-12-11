@@ -1,11 +1,6 @@
 MVP:
 ------------------
-- Add UI
-	- Sprites
-	- VFX
-		- Explosions
-		- Smoke trail? After missles/tank movement
-
+- Sound effects to explosion, shoot
 - Main menu
 	- Singleplayer option
 	- Quit
