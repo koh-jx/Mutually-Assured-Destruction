@@ -1,18 +1,18 @@
-- Stats (health, move speed)
-	- Missle to damage player (convert to player hurtbox? instead of missle hitbox)
-
-- Change fixed angle to a range
-	- Arrow indicator, W and S to toggle
-	- Change input to shoot
 - Add UI
-	- Sprites
 	- Health UI
+	- Sprites
+	- VFX
+- Single-player + basic AI
+	- action_pressed()/released() to "simulate input" by enemy AI?
+	https://www.reddit.com/r/godot/comments/s04tk0/how_can_i_simulate_inputs/
+- Main menu
 - 2 player implementation + controls
-- Single-player + AI?
 - Add more weapons (drill, carpet bombing, explosion on impact)
+	- Hold down shoot to increase intensity?
 
-- Add nuke gauge, which powers up spells as you shoot/get damaged, and decreases over time
+- Add nuke gauge, which powers up weapons as you shoot/get damaged, and decreases over time
 - Add power ups (superspeed, infinite ammo)
 
-- Add multiple planets?
 - 2 player via networking?
+- Add multiple planets?
+

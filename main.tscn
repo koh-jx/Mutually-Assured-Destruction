@@ -14,3 +14,4 @@ texture = ExtResource("1_ukils")
 position = Vector2(578, 337)
 
 [node name="Player" parent="." instance=ExtResource("2_mevgc")]
+scale = Vector2(2.02923, 1.7627)
