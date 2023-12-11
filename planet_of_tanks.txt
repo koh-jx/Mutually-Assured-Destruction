@@ -1,0 +1,32 @@
+- Add gravity towards center of a circle 
+	- Gravity pull formula in unity: https://www.youtube.com/watch?v=E6n-8jp-ZAY
+	- also refer to 3247 lab2 to see whatever i did with those cars (think those just hard codes the location away from orbit directly though)
+	- https://www.youtube.com/watch?v=fy-LcFZTTZU does it PER character, but i want to do it using only 1 Gravity handler node
+	- Use of collision box and collision layer/mask?
+
+
+- Add "gravity area" to planet to affect all objects in the area
+	- All objects colliding with this area are pulled towards the center and have their rotation updated based on gravity pull direction
+- Add circular motion of an entity along the sphere (i.e left/right motion accounting for rotation of entity)
+- Add tank entities with stats (health, move speed, reload time)
+- Add projectile motion missles affected by gravity shot at fixed angle from player
+- Change fixed angle to a range
+- Add health
+- Add UI/sprites
+- 2 player implementation + controls
+- Single-player + AI?
+- Add more weapons (drill, carpet bombing, explosion on impact)
+- Add power ups (superspeed, infinite ammo)
+
+- Add multiple planets?
+- 2 player via networking?
+
+
+
+https://hochupitsu.itch.io/heart-and-mana
+https://snoblin.itch.io/pixel-hearts/download/eyJpZCI6MTc3OTQ3NCwiZXhwaXJlcyI6MTcwMjI4NTc0N30%3d.nrVtXlohNMCDXlZNQBexUnklkNQ%3d
+https://joshuajennerdev.itch.io/pixel-keys-x16
+https://gowldev.itch.io/health-stamina-bar-pixel-art
+https://gowldev.itch.io/squares
+https://gowldev.itch.io/ui-buttons-scrolling-bars-pixel-art
+https://ragnapixel.itch.io/particle-fx

@@ -1,0 +1,117 @@
+[gd_scene load_steps=12 format=3 uid="uid://oddw0l2dicvy"]
+
+[ext_resource type="Texture2D" uid="uid://mhd661p830m0" path="res://assets/ui/hearts.png" id="1_m73oi"]
+[ext_resource type="Script" path="res://scenes/UI/lifebar.gd" id="1_twxxi"]
+[ext_resource type="FontFile" uid="uid://bhiiomegcynfe" path="res://assets/font/Squares.ttf" id="2_hni0f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yux6g"]
+atlas = ExtResource("1_m73oi")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7526s"]
+atlas = ExtResource("1_m73oi")
+region = Rect2(32, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f77qa"]
+atlas = ExtResource("1_m73oi")
+region = Rect2(16, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pyolu"]
+atlas = ExtResource("1_m73oi")
+region = Rect2(32, 144, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6tai"]
+atlas = ExtResource("1_m73oi")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gpmd"]
+atlas = ExtResource("1_m73oi")
+region = Rect2(32, 64, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qf2n3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yux6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7526s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f77qa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pyolu")
+}],
+"loop": false,
+"name": &"damaged",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6tai")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gpmd")
+}],
+"loop": true,
+"name": &"lost",
+"speed": 5.0
+}]
+
+[sub_resource type="FontVariation" id="FontVariation_bsi0m"]
+base_font = ExtResource("2_hni0f")
+spacing_glyph = -9
+
+[node name="lifebar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_twxxi")
+
+[node name="Heart1" type="AnimatedSprite2D" parent="."]
+position = Vector2(79, 19)
+scale = Vector2(3.01809, 3)
+sprite_frames = SubResource("SpriteFrames_qf2n3")
+autoplay = "default"
+
+[node name="Heart2" type="AnimatedSprite2D" parent="."]
+position = Vector2(103, 19)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_qf2n3")
+autoplay = "default"
+
+[node name="Heart3" type="AnimatedSprite2D" parent="."]
+position = Vector2(127, 19)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_qf2n3")
+autoplay = "default"
+
+[node name="Heart4" type="AnimatedSprite2D" parent="."]
+position = Vector2(151, 19)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_qf2n3")
+autoplay = "default"
+
+[node name="Heart5" type="AnimatedSprite2D" parent="."]
+position = Vector2(175, 19)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_qf2n3")
+autoplay = "default"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 18.0
+offset_right = 63.0
+offset_bottom = 36.0
+theme_override_fonts/font = SubResource("FontVariation_bsi0m")
+theme_override_font_sizes/font_size = 10
+text = "hp"

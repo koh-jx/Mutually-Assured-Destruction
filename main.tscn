@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://xrtif2i01nv1"]
+[gd_scene load_steps=7 format=3 uid="uid://xrtif2i01nv1"]
 
 [ext_resource type="PackedScene" uid="uid://brdddejb8fhux" path="res://scenes/planet/planet.tscn" id="1_a4eky"]
 [ext_resource type="Texture2D" uid="uid://r5hhoqtwwx7k" path="res://assets/planets/background.png" id="1_ukils"]
 [ext_resource type="PackedScene" uid="uid://ckoyd3b0cnou6" path="res://scenes/entity/player/player.tscn" id="2_mevgc"]
 [ext_resource type="PackedScene" uid="uid://btrxctl8ofwaq" path="res://scenes/entity/enemy/enemy.tscn" id="4_8hqb3"]
+[ext_resource type="PackedScene" uid="uid://db26pyg4354y2" path="res://scenes/UI/ingame_gui.tscn" id="5_glk4s"]
+[ext_resource type="AudioStream" uid="uid://fj402juugqdx" path="res://assets/music/16_bit_space.ogg" id="6_r87rs"]
 
 [node name="Main" type="Node2D"]
 
@@ -17,4 +19,21 @@ position = Vector2(578, 337)
 [node name="Player" parent="." instance=ExtResource("2_mevgc")]
 
 [node name="Enemy" parent="." instance=ExtResource("4_8hqb3")]
-position = Vector2(967, 322)
+position = Vector2(1149, 640)
+
+[node name="ingame_gui" parent="." instance=ExtResource("5_glk4s")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 73.0
+offset_top = 63.0
+offset_right = 587.0
+offset_bottom = 415.0
+scale = Vector2(1.44, 1.35771)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_r87rs")
+autoplay = true
+
+[connection signal="health_damaged" from="Player" to="ingame_gui" method="_on_player_health_damaged"]
+[connection signal="enemy_health_damaged" from="Enemy" to="ingame_gui" method="_on_enemy_enemy_health_damaged"]

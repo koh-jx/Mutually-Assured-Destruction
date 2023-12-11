@@ -1,15 +1,24 @@
-- Add UI
-	- Health UI
-	- Sprites
-	- VFX
-
+MVP:
+------------------
+- Sound effects to explosion, shoot
 - Main menu
+	- Singleplayer option
+	- Quit
+	- Camera to main scene
+		- https://godotforums.org/d/21473-beginner-looking-for-2d-camera-setup-and-movement-tutorials/2
+	- Panning animations
+- Music
+- Victory screen
+
+
+More Functions
+----------------
 - 2 player implementation + controls
 - Add more weapons (drill, carpet bombing, explosion on impact)
 	- Hold down shoot to increase intensity?
-
 - Add nuke gauge, which powers up weapons as you shoot/get damaged, and decreases over time
 - Add power ups (superspeed, infinite ammo)
+- Add more AI difficulties
 
 - 2 player via networking?
 - Add multiple planets?

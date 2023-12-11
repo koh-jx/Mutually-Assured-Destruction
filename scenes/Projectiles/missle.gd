@@ -1,7 +1,7 @@
 extends "res://scenes/Projectiles/projectile.gd"
 
 const magnitude = 450.0
-const damage = 20.0
+const damage = 1
 
 func _ready():
 	#thrust_towards(Vector2()) # Example to use if placed directly in world
@@ -18,7 +18,8 @@ func _integrate_forces(state):
 	super._integrate_forces(state)
 
 func _on_body_entered(body):
-	queue_free()
+	$SmokeTrail.reparent_to_root()
+	super.on_destroy()
 
 func _on_invuln_timer_timeout():
 	toggle_collision()

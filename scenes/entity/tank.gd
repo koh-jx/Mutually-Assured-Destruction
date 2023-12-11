@@ -3,13 +3,14 @@
 extends "res://scenes/entity/entity.gd"
 
 var Missle = preload("res://scenes/Projectiles/missle.tscn")
+var Explosion = preload("res://scenes/Projectiles/explosion.tscn")
 
 # Default stats
 var shoot_angle = 30.0
 const SHOOT_ROTATION_SPEED = 200.0
 const MIN_SHOOT_ANGLE = 30.0
 const MAX_SHOOT_ANGLE = 150.0
-var health = 100
+var health = 5
 var speed = 35000.0
 var reload_speed = 0.5
 
@@ -22,6 +23,7 @@ var rotation_input_dir: float = 0
 
 func _ready():
 	$Arrowhead.rotate(-1 * deg_to_rad(shoot_angle))
+	$ShootTimer.set_wait_time(reload_speed)
 	super._ready()
 
 # Update velocity_input_dir and rot_input_dir 
@@ -82,4 +84,10 @@ func take_damage(damage):
 		lose()
 
 func lose():
+	var explosion = Explosion.instantiate()
+	get_parent().add_child(explosion)
+	explosion.set_animation("mushroom_cloud")
+	explosion.global_position = global_position
+	explosion.global_rotation = global_rotation
+	explosion.global_scale = Vector2(2, 2)
 	queue_free()

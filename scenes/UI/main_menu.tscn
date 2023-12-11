@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://e4insra6kg4t"]
+
+[ext_resource type="FontFile" uid="uid://bhiiomegcynfe" path="res://assets/font/Squares.ttf" id="1_pvl5u"]
+
+[sub_resource type="FontVariation" id="FontVariation_lov52"]
+base_font = ExtResource("1_pvl5u")
+spacing_glyph = -10
+spacing_space = 25
+
+[node name="MarginContainer" type="MarginContainer"]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = SubResource("FontVariation_lov52")
+text = "Mutually Assured
+Destruction"
+horizontal_alignment = 1
+vertical_alignment = 1
