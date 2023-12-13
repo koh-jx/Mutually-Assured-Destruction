@@ -176,7 +176,7 @@ contact_monitor = true
 script = ExtResource("1_cr8no")
 
 [node name="SmokeTrail" type="GPUParticles2D" parent="."]
-modulate = Color(0.541176, 0.541176, 0.541176, 0.352941)
+modulate = Color(0.541176, 0.541176, 0.541176, 0.101961)
 material = SubResource("CanvasItemMaterial_gysyp")
 position = Vector2(1, -12)
 amount = 25

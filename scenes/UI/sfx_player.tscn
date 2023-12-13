@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://njnlni2001dt"]
+
+[ext_resource type="AudioStream" uid="uid://cxq3wsgjdlkv8" path="res://assets/music/medium-explosion-40472.mp3" id="1_85urk"]
+[ext_resource type="Script" path="res://scenes/UI/sfx_player.gd" id="2_87va1"]
+
+[node name="SFXPlayer" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_85urk")
+volume_db = 0.303
+autoplay = true
+script = ExtResource("2_87va1")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

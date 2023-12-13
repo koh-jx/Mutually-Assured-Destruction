@@ -16,5 +16,7 @@ var planet_list = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$PlanetSprite.texture = planet_list.pick_random()
+	change_sprite()
 	
+func change_sprite():
+	$PlanetSprite.texture = planet_list.pick_random()

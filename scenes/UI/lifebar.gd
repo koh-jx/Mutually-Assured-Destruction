@@ -13,6 +13,11 @@ extends Control
 
 func _ready():
 	$Label.modulate = label_colour
+	
+func reset():
+	health = 5
+	for heart in healthHearts:
+		heart.set_animation("default")
 
 func damaged(damage):
 	if health < 0:
@@ -32,3 +37,4 @@ func _lose_heart(heart: AnimatedSprite2D):
 	heart.set_animation("lost")
 	heart.set_loop(true)
 	heart.play()
+

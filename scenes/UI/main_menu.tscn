@@ -1,21 +1,49 @@
-[gd_scene load_steps=3 format=3 uid="uid://e4insra6kg4t"]
+[gd_scene load_steps=5 format=3 uid="uid://e4insra6kg4t"]
 
+[ext_resource type="Script" path="res://scenes/UI/main_menu.gd" id="1_jrsm4"]
 [ext_resource type="FontFile" uid="uid://bhiiomegcynfe" path="res://assets/font/Squares.ttf" id="1_pvl5u"]
+[ext_resource type="Texture2D" uid="uid://cldpmrxymh3d6" path="res://assets/ui/play_button.png" id="3_fud5k"]
 
 [sub_resource type="FontVariation" id="FontVariation_lov52"]
 base_font = ExtResource("1_pvl5u")
 spacing_glyph = -10
 spacing_space = 25
 
-[node name="MarginContainer" type="MarginContainer"]
-offset_right = 1152.0
-offset_bottom = 648.0
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jrsm4")
 
 [node name="Label" type="Label" parent="."]
-layout_mode = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.215278
+anchor_top = -0.12963
+anchor_right = 0.230035
+anchor_bottom = 0.0509259
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 1
 theme_override_fonts/font = SubResource("FontVariation_lov52")
 text = "Mutually Assured
 Destruction"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00260417
+anchor_right = 0.00260417
+offset_left = -28.0
+offset_top = 114.0
+offset_right = -12.0
+offset_bottom = 130.0
+scale = Vector2(3.09525, 3.09525)
+texture_normal = ExtResource("3_fud5k")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
