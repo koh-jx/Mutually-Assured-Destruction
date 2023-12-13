@@ -28,9 +28,4 @@ label_colour = Color(1, 0.278431, 0.278431, 1)
 [node name="destruct_timer" type="Timer" parent="."]
 one_shot = true
 
-[node name="return_timer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
-
 [connection signal="timeout" from="destruct_timer" to="." method="_on_destruct_timer_timeout"]
-[connection signal="timeout" from="return_timer" to="." method="_on_return_timer_timeout"]

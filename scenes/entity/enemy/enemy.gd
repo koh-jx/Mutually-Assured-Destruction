@@ -9,6 +9,10 @@ extends "res://scenes/entity/tank.gd"
 signal enemy_health_damaged
 signal enemy_died
 
+func _ready():
+	super._ready()
+	death_signal_name = "enemy_died"
+
 func _physics_process(delta):
 	random_update_velocity_input_dir()
 	random_update_rotation_input_dir()

@@ -4,6 +4,7 @@ extends "res://scenes/entity/entity.gd"
 
 var Missle = preload("res://scenes/Projectiles/missle.tscn")
 var Explosion = preload("res://scenes/Projectiles/explosion.tscn")
+var SFXplayer = preload("res://scenes/UI/sfx_player.tscn")
 
 # Default stats
 var shoot_angle = 30.0
@@ -20,6 +21,9 @@ var direction_faced : Direction = Direction.FACING_RIGHT
 var can_shoot: bool = true
 var velocity_input_dir: float = 0
 var rotation_input_dir: float = 0
+
+# For child classes
+var death_signal_name: StringName
 
 func _ready():
 	$Arrowhead.rotate(-1 * deg_to_rad(shoot_angle))
@@ -84,10 +88,16 @@ func take_damage(damage):
 		lose()
 
 func lose():
+	var sfx = SFXplayer.instantiate()
+	sfx.play_sfx("death", 0.0)
+	get_parent().add_child(sfx)
+	
 	var explosion = Explosion.instantiate()
 	get_parent().add_child(explosion)
 	explosion.set_animation("mushroom_cloud")
 	explosion.global_position = global_position
 	explosion.global_rotation = global_rotation
 	explosion.global_scale = Vector2(2, 2)
+	
+	emit_signal(death_signal_name)
 	queue_free()

@@ -4,6 +4,10 @@ extends "res://scenes/entity/tank.gd"
 signal health_damaged
 signal player_died
 
+func _ready():
+	super._ready()
+	death_signal_name = "player_died"
+
 func _physics_process(delta):
 	velocity_input_dir = Input.get_action_strength("ui_right") - \
 					Input.get_action_strength("ui_left")

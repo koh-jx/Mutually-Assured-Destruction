@@ -1,17 +1,8 @@
-MVP:
-------------------
-- Sound effects to explosion, shoot
-- Main menu
-	- Singleplayer option
-	- Quit
-	- Camera to main scene
-		- https://godotforums.org/d/21473-beginner-looking-for-2d-camera-setup-and-movement-tutorials/2
-	- Panning animations
-- Music
-- Victory screen
+
+- Hi score
 
 
-More Functions
+More Functionsw
 ----------------
 - 2 player implementation + controls
 - Add more weapons (drill, carpet bombing, explosion on impact)

@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://brdddejb8fhux" path="res://scenes/planet/planet.tscn" id="1_a4eky"]
 [ext_resource type="Texture2D" uid="uid://r5hhoqtwwx7k" path="res://assets/planets/background.png" id="1_ukils"]
-[ext_resource type="PackedScene" uid="uid://ckoyd3b0cnou6" path="res://scenes/entity/player/player.tscn" id="2_mevgc"]
-[ext_resource type="PackedScene" uid="uid://btrxctl8ofwaq" path="res://scenes/entity/enemy/enemy.tscn" id="4_8hqb3"]
 [ext_resource type="PackedScene" uid="uid://db26pyg4354y2" path="res://scenes/UI/ingame_gui.tscn" id="5_glk4s"]
+[ext_resource type="Script" path="res://Camera.gd" id="6_2rk24"]
 [ext_resource type="AudioStream" uid="uid://fj402juugqdx" path="res://assets/music/16_bit_space.ogg" id="6_r87rs"]
+[ext_resource type="PackedScene" uid="uid://e4insra6kg4t" path="res://scenes/UI/main_menu.tscn" id="7_qov5c"]
 
 [node name="Main" type="Node2D"]
 
@@ -15,11 +15,6 @@ texture = ExtResource("1_ukils")
 
 [node name="Planet" parent="." instance=ExtResource("1_a4eky")]
 position = Vector2(578, 337)
-
-[node name="Player" parent="." instance=ExtResource("2_mevgc")]
-
-[node name="Enemy" parent="." instance=ExtResource("4_8hqb3")]
-position = Vector2(1149, 640)
 
 [node name="ingame_gui" parent="." instance=ExtResource("5_glk4s")]
 anchors_preset = 0
@@ -35,5 +30,15 @@ scale = Vector2(1.44, 1.35771)
 stream = ExtResource("6_r87rs")
 autoplay = true
 
-[connection signal="health_damaged" from="Player" to="ingame_gui" method="_on_player_health_damaged"]
-[connection signal="enemy_health_damaged" from="Enemy" to="ingame_gui" method="_on_enemy_enemy_health_damaged"]
+[node name="Main Menu" parent="." instance=ExtResource("7_qov5c")]
+offset_left = 549.0
+offset_top = 1010.0
+offset_right = 549.0
+offset_bottom = 1010.0
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(577, 1030)
+script = ExtResource("6_2rk24")
+
+[connection signal="return_to_menu" from="ingame_gui" to="Camera" method="_on_ingame_gui_return_to_menu"]
+[connection signal="start_game" from="Main Menu" to="Camera" method="_on_main_menu_start_game"]
