@@ -1,8 +1,4 @@
-
-- Hi score
-
-
-More Functionsw
+More Functions
 ----------------
 - 2 player implementation + controls
 - Add more weapons (drill, carpet bombing, explosion on impact)

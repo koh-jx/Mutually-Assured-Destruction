@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://xrtif2i01nv1"]
+[gd_scene load_steps=8 format=3 uid="uid://xrtif2i01nv1"]
 
 [ext_resource type="PackedScene" uid="uid://brdddejb8fhux" path="res://scenes/planet/planet.tscn" id="1_a4eky"]
 [ext_resource type="Texture2D" uid="uid://r5hhoqtwwx7k" path="res://assets/planets/background.png" id="1_ukils"]
 [ext_resource type="PackedScene" uid="uid://db26pyg4354y2" path="res://scenes/UI/ingame_gui.tscn" id="5_glk4s"]
 [ext_resource type="Script" path="res://Camera.gd" id="6_2rk24"]
 [ext_resource type="AudioStream" uid="uid://fj402juugqdx" path="res://assets/music/16_bit_space.ogg" id="6_r87rs"]
+[ext_resource type="PackedScene" uid="uid://njnlni2001dt" path="res://scenes/UI/sfx_player.tscn" id="7_i7ak1"]
 [ext_resource type="PackedScene" uid="uid://e4insra6kg4t" path="res://scenes/UI/main_menu.tscn" id="7_qov5c"]
 
 [node name="Main" type="Node2D"]
@@ -31,14 +32,18 @@ stream = ExtResource("6_r87rs")
 autoplay = true
 
 [node name="Main Menu" parent="." instance=ExtResource("7_qov5c")]
-offset_left = 549.0
-offset_top = 1010.0
-offset_right = 549.0
-offset_bottom = 1010.0
+offset_left = 578.0
+offset_top = 956.0
+offset_right = 578.0
+offset_bottom = 956.0
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(577, 1030)
 script = ExtResource("6_2rk24")
 
+[node name="SFXPlayer" parent="." instance=ExtResource("7_i7ak1")]
+
 [connection signal="return_to_menu" from="ingame_gui" to="Camera" method="_on_ingame_gui_return_to_menu"]
+[connection signal="update_high_score" from="ingame_gui" to="Main Menu" method="_on_ingame_gui_update_high_score"]
 [connection signal="start_game" from="Main Menu" to="Camera" method="_on_main_menu_start_game"]
+[connection signal="finishedPanning" from="Camera" to="Main Menu" method="_on_camera_finished_panning"]

@@ -5,3 +5,9 @@
 
 [node name="Player" instance=ExtResource("1_xc1wj")]
 script = ExtResource("1_xcyd7")
+
+[node name="AnimatedSprite2D" parent="." index="2"]
+modulate = Color(0, 1, 1, 1)
+
+[node name="CollisionShape2D2" parent="Hurtbox" index="0"]
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
