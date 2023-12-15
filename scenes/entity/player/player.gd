@@ -9,13 +9,13 @@ func _ready():
 	death_signal_name = "player_died"
 
 func _physics_process(delta):
-	velocity_input_dir = Input.get_action_strength("ui_right") - \
-					Input.get_action_strength("ui_left")
-	rotation_input_dir = Input.get_action_strength("ui_up") - \
-					Input.get_action_strength("ui_down")
+	velocity_input_dir = Input.get_action_strength("player_1_right") - \
+					Input.get_action_strength("player_1_left")
+	rotation_input_dir = Input.get_action_strength("player_1_up") - \
+					Input.get_action_strength("player_1_down")
 	super._physics_process(delta)
 	# Shoot any missles
-	if can_shoot and Input.is_action_just_released("shoot-missle"):
+	if can_shoot and Input.is_action_just_released("player_1_shoot"):
 		shoot_missle()
 
 func _on_hurtbox_body_entered(body):

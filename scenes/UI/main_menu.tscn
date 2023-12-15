@@ -1,13 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://e4insra6kg4t"]
+[gd_scene load_steps=7 format=3 uid="uid://e4insra6kg4t"]
 
 [ext_resource type="Script" path="res://scenes/UI/main_menu.gd" id="1_jrsm4"]
 [ext_resource type="FontFile" uid="uid://bhiiomegcynfe" path="res://assets/font/Squares.ttf" id="1_pvl5u"]
 [ext_resource type="Texture2D" uid="uid://cldpmrxymh3d6" path="res://assets/ui/play_button.png" id="3_fud5k"]
+[ext_resource type="PackedScene" uid="uid://wwj3u35yvhmi" path="res://scenes/UI/key_controls.tscn" id="4_8a7ai"]
 
 [sub_resource type="FontVariation" id="FontVariation_lov52"]
 base_font = ExtResource("1_pvl5u")
 spacing_glyph = -10
 spacing_space = 25
+
+[sub_resource type="FontVariation" id="FontVariation_qcox0"]
+base_font = ExtResource("1_pvl5u")
+spacing_glyph = -9
+spacing_space = 10
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -45,5 +51,34 @@ offset_right = -12.0
 offset_bottom = 130.0
 scale = Vector2(3.09525, 3.09525)
 texture_normal = ExtResource("3_fud5k")
+
+[node name="HighScoreLabel" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -119.0
+offset_top = 195.0
+offset_right = 101.0
+offset_bottom = 235.0
+
+[node name="Label" type="Label" parent="HighScoreLabel"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = SubResource("FontVariation_qcox0")
+theme_override_font_sizes/font_size = 10
+text = "high score :"
+
+[node name="hi_score" type="Label" parent="HighScoreLabel"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_qcox0")
+theme_override_font_sizes/font_size = 10
+text = "0
+"
+
+[node name="KeyControls" parent="." instance=ExtResource("4_8a7ai")]
+layout_mode = 1
+offset_left = -113.0
+offset_top = 431.0
+offset_right = -967.0
+offset_bottom = -57.0
+scale = Vector2(1.12, 1.17333)
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

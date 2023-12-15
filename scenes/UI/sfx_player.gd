@@ -8,7 +8,7 @@ func play_sfx(string: StringName, start_time = 0.0):
 	match string:
 		"explosion":
 			set_stream(explosion)
-			set_volume_db(-17.0)
+			set_volume_db(-10.0)
 		"death":
 			set_stream(death)
 		"button":

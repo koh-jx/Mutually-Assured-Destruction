@@ -12,7 +12,7 @@ const SHOOT_ROTATION_SPEED = 200.0
 const MIN_SHOOT_ANGLE = 30.0
 const MAX_SHOOT_ANGLE = 150.0
 var health = 5
-var speed = 35000.0
+var speed = 25000.0
 var reload_speed = 0.5
 
 # Variables

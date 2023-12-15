@@ -1,16 +1,58 @@
-[gd_scene load_steps=3 format=3 uid="uid://db26pyg4354y2"]
+[gd_scene load_steps=8 format=3 uid="uid://db26pyg4354y2"]
 
 [ext_resource type="Script" path="res://scenes/UI/ingame_gui.gd" id="1_j1wy1"]
 [ext_resource type="PackedScene" uid="uid://oddw0l2dicvy" path="res://scenes/UI/lifebar.tscn" id="1_ju7xt"]
+[ext_resource type="FontFile" uid="uid://bhiiomegcynfe" path="res://assets/font/Squares.ttf" id="3_sfosd"]
+
+[sub_resource type="FontVariation" id="FontVariation_x7nfn"]
+base_font = ExtResource("3_sfosd")
+spacing_glyph = -6
+spacing_space = 10
+
+[sub_resource type="Animation" id="Animation_d4r8j"]
+resource_name = "increment_score"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("high_score/score:theme_override_font_sizes/font_size")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [15, 20, 15]
+}
+
+[sub_resource type="Animation" id="Animation_crquf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("high_score/score:theme_override_font_sizes/font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [15]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_00m23"]
+_data = {
+"RESET": SubResource("Animation_crquf"),
+"increment_score": SubResource("Animation_d4r8j")
+}
 
 [node name="ingame_gui" type="MarginContainer"]
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.003
-offset_left = 43.0
-offset_top = 52.0
-offset_right = -57.0
-offset_bottom = -102.944
+offset_left = 29.0
+offset_top = 20.0
+offset_right = -71.0
+offset_bottom = -134.944
 script = ExtResource("1_j1wy1")
 
 [node name="player_life" parent="." instance=ExtResource("1_ju7xt")]
@@ -32,5 +74,32 @@ one_shot = true
 wait_time = 2.0
 one_shot = true
 
+[node name="enemy_spawn_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="high_score" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="High score label" type="Label" parent="high_score"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_x7nfn")
+theme_override_font_sizes/font_size = 7
+text = "Win Streak:"
+
+[node name="score" type="Label" parent="high_score"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_x7nfn")
+theme_override_font_sizes/font_size = 15
+text = "0
+"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_00m23")
+}
+
 [connection signal="timeout" from="destruct_timer" to="." method="_on_destruct_timer_timeout"]
 [connection signal="timeout" from="return_timer" to="." method="_on_return_timer_timeout"]
+[connection signal="timeout" from="enemy_spawn_timer" to="." method="_on_enemy_spawn_timer_timeout"]
