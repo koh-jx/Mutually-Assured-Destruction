@@ -1,5 +1,7 @@
 extends ColorRect
 
+var SFXplayer = preload("res://scenes/UI/sfx_player.tscn")
+
 var is_player_one = true
 
 var w = InputEventKey.new()
@@ -27,9 +29,16 @@ func _ready():
 	semicolon.physical_keycode = KEY_SEMICOLON
 
 func _on_button_pressed():
+	var sfx = SFXplayer.instantiate()
+	sfx.play_sfx("button")
+	get_parent().add_child(sfx)
+	
 	is_player_one = !is_player_one
 	$player_1_keys.visible = is_player_one
 	$player_2_keys.visible = !is_player_one
+	
+	$"Player2/player_1_keys".visible = !is_player_one
+	$"Player2/player_2_keys".visible = is_player_one
 	
 	_reset_inputs()
 	_add_player_one_inputs()

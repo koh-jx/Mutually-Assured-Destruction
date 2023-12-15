@@ -4,6 +4,8 @@ var location = 0.0
 var startPlaying = false
 var endPlaying = false
 
+signal finishedPanning;
+
 func _process(delta):
 	if startPlaying:
 		location += 2 * delta
@@ -13,7 +15,7 @@ func _process(delta):
 			location = 1
 			position.y = 322
 			startPlaying = false
-			$"../ingame_gui".start_game()
+			emit_signal("finishedPanning")
 			
 	if endPlaying:
 		location -= 2 * delta

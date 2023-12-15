@@ -150,6 +150,7 @@ sources/0 = SubResource("TileSetAtlasSource_clg3o")
 [sub_resource type="FontVariation" id="FontVariation_l0mfl"]
 base_font = ExtResource("2_4gdgl")
 spacing_glyph = -8
+spacing_space = 10
 
 [sub_resource type="FontVariation" id="FontVariation_7doh5"]
 base_font = ExtResource("2_4gdgl")
@@ -197,6 +198,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(65534, 131072, 4, 65535, 262144, 4, -65535, 196608, 3, 1, 196608, 4, 4, 327680, 4)
 
 [node name="Controls" type="Label" parent="."]
+modulate = Color(0.0117647, 1, 1, 1)
 layout_mode = 0
 offset_left = 4.0
 offset_top = -26.0
@@ -205,9 +207,10 @@ offset_bottom = 31.0
 scale = Vector2(0.840315, 0.76)
 theme_override_fonts/font = SubResource("FontVariation_l0mfl")
 theme_override_font_sizes/font_size = 10
-text = "Controls"
+text = "Controls  (P1)"
 
 [node name="Move" type="Label" parent="."]
+layout_mode = 0
 offset_left = 28.0
 offset_top = 86.72
 offset_right = 183.0
@@ -218,6 +221,7 @@ theme_override_font_sizes/font_size = 8
 text = "Move"
 
 [node name="Move2" type="Label" parent="."]
+layout_mode = 0
 offset_left = 211.0
 offset_top = 86.72
 offset_right = 366.0
@@ -228,6 +232,7 @@ theme_override_font_sizes/font_size = 8
 text = "Shoot"
 
 [node name="Move3" type="Label" parent="."]
+layout_mode = 0
 offset_left = 74.0
 offset_top = 87.72
 offset_right = 229.0
@@ -258,4 +263,88 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_4lq78")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_247qo")
 theme_override_styles/focus = SubResource("StyleBoxFlat_qwfix")
 
+[node name="Player2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 683.0
+offset_top = 1.0
+offset_right = 979.0
+offset_bottom = 162.0
+color = Color(0, 0.117647, 0.266667, 0.172549)
+
+[node name="ColorRect" type="ColorRect" parent="Player2"]
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 293.0
+offset_bottom = 156.0
+color = Color(0.0156863, 0.176471, 0.231373, 0.752941)
+
+[node name="player_1_keys" type="TileMap" parent="Player2"]
+visible = false
+position = Vector2(95, 51.72)
+scale = Vector2(1.84, 1.84)
+tile_set = SubResource("TileSet_8u45t")
+format = 2
+layer_0/tile_data = PackedInt32Array(65534, 131072, 4, 65535, 262144, 4, -65535, 196608, 3, 1, 196608, 4, 4, 327680, 4)
+
+[node name="Controls" type="Label" parent="Player2"]
+modulate = Color(1, 0, 0, 1)
+offset_left = 4.0
+offset_top = -26.0
+offset_right = 159.0
+offset_bottom = 31.0
+scale = Vector2(0.840315, 0.76)
+theme_override_fonts/font = SubResource("FontVariation_l0mfl")
+theme_override_font_sizes/font_size = 10
+text = "Controls  (P2)"
+
+[node name="Move" type="Label" parent="Player2"]
+offset_left = 28.0
+offset_top = 86.72
+offset_right = 183.0
+offset_bottom = 143.72
+scale = Vector2(0.840315, 0.76)
+theme_override_fonts/font = SubResource("FontVariation_7doh5")
+theme_override_font_sizes/font_size = 8
+text = "Move"
+
+[node name="Move2" type="Label" parent="Player2"]
+offset_left = 211.0
+offset_top = 86.72
+offset_right = 366.0
+offset_bottom = 143.72
+scale = Vector2(0.840315, 0.76)
+theme_override_fonts/font = SubResource("FontVariation_7doh5")
+theme_override_font_sizes/font_size = 8
+text = "Shoot"
+
+[node name="Move3" type="Label" parent="Player2"]
+offset_left = 74.0
+offset_top = 87.72
+offset_right = 229.0
+offset_bottom = 148.72
+scale = Vector2(0.840315, 0.76)
+theme_override_fonts/font = SubResource("FontVariation_7doh5")
+theme_override_font_sizes/font_size = 8
+text = "Move
+Gun
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="player_2_keys" type="TileMap" parent="Player2"]
+position = Vector2(95, 51)
+scale = Vector2(1.84, 1.84)
+tile_set = SubResource("TileSet_8u45t")
+format = 2
+layer_0/tile_data = PackedInt32Array(65534, 524288, 4, 65535, 655360, 4, -65535, 589824, 3, 1, 589824, 4, 4, 720896, 4)
+
+[node name="Button" type="Button" parent="Player2"]
+offset_right = 297.0
+offset_bottom = 158.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ex6hl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4lq78")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_247qo")
+theme_override_styles/focus = SubResource("StyleBoxFlat_qwfix")
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Player2/Button" to="." method="_on_button_pressed"]

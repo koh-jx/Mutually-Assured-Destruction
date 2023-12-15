@@ -11,8 +11,10 @@ func play_sfx(string: StringName, start_time = 0.0):
 			set_volume_db(-10.0)
 		"death":
 			set_stream(death)
+			set_volume_db(-10.0)
 		"button":
 			set_stream(button)
+			set_volume_db(-10.0)
 		_:
 			push_error("Sound effect not recognized:", string)
 			return

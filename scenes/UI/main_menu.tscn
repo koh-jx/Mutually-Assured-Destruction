@@ -7,8 +7,8 @@
 
 [sub_resource type="FontVariation" id="FontVariation_lov52"]
 base_font = ExtResource("1_pvl5u")
-spacing_glyph = -10
-spacing_space = 25
+spacing_glyph = -7
+spacing_space = 15
 
 [sub_resource type="FontVariation" id="FontVariation_qcox0"]
 base_font = ExtResource("1_pvl5u")
@@ -31,6 +31,10 @@ anchor_left = -0.215278
 anchor_top = -0.12963
 anchor_right = 0.230035
 anchor_bottom = 0.0509259
+offset_left = -10.9997
+offset_top = -52.9998
+offset_right = 23.9997
+offset_bottom = -52.9998
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 1
@@ -40,24 +44,75 @@ Destruction"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="MultiplayerButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 84.0
+offset_right = 85.0
+offset_bottom = 124.0
+scale = Vector2(1.2, 1.2)
+texture_normal = ExtResource("3_fud5k")
+stretch_mode = 0
+
+[node name="Multiplayer Label" type="Label" parent="MultiplayerButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.215278
+anchor_top = -0.12963
+anchor_right = 0.230035
+anchor_bottom = 0.0509259
+offset_left = 48.6111
+offset_top = -1.48146
+offset_right = 135.799
+offset_bottom = 44.2963
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 1
+theme_override_fonts/font = SubResource("FontVariation_lov52")
+theme_override_font_sizes/font_size = 10
+text = "PvP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.00260417
 anchor_right = 0.00260417
-offset_left = -28.0
-offset_top = 114.0
-offset_right = -12.0
-offset_bottom = 130.0
+offset_left = -99.0
+offset_top = 82.0
+offset_right = -83.0
+offset_bottom = 98.0
 scale = Vector2(3.09525, 3.09525)
 texture_normal = ExtResource("3_fud5k")
 
+[node name="Multiplayer Label" type="Label" parent="TextureButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.215278
+anchor_top = -0.12963
+anchor_right = 0.230035
+anchor_bottom = 0.0509259
+offset_left = -42.7554
+offset_top = 1.10485
+offset_right = 59.1196
+offset_bottom = 46.8826
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.392618, 0.392618)
+size_flags_vertical = 1
+theme_override_fonts/font = SubResource("FontVariation_lov52")
+theme_override_font_sizes/font_size = 10
+text = "Vs AI"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="HighScoreLabel" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = -119.0
-offset_top = 195.0
-offset_right = 101.0
-offset_bottom = 235.0
+offset_left = -114.0
+offset_top = 199.0
+offset_right = 106.0
+offset_bottom = 239.0
 
 [node name="Label" type="Label" parent="HighScoreLabel"]
 layout_mode = 2
@@ -81,4 +136,5 @@ offset_right = -967.0
 offset_bottom = -57.0
 scale = Vector2(1.12, 1.17333)
 
+[connection signal="pressed" from="MultiplayerButton" to="." method="_on_multiplayer_button_pressed"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
